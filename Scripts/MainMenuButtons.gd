@@ -1,11 +1,15 @@
 extends VBoxContainer
 
-@export var sceneToLoad:PackedScene
-
-var label2=Label.new()
+var count
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	print("this is test on init ",world.testGetter())
+	count=0
+
+func _input(event):
+	if event is InputEventKey and event.pressed:
+		if ((event.keycode == KEY_TAB or event.keycode == KEY_LEFT or event.keycode == KEY_RIGHT or event.keycode == KEY_UP or event.keycode == KEY_DOWN)and count==0):
+			count+=1
+			get_node("PlayButton").grab_focus()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

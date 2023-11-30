@@ -1,0 +1,41 @@
+[gd_scene load_steps=3 format=3 uid="uid://cvwvlmumjny1k"]
+
+[ext_resource type="Theme" uid="uid://c04uvtn1hvg7n" path="res://widgets/styles/titleTextTheme.tres" id="1_rh5rv"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_b6hbi"]
+load_path = "res://.godot/imported/title_bg.jpg-aed4383392b13cae52eeccd3628148fd.ctex"
+
+[node name="titleLabel" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_rh5rv")
+
+[node name="Label" type="Label" parent="."]
+z_index = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 200
+text = "KRAMNYK"
+horizontal_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="Label"]
+z_index = -1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1188.81
+offset_right = 1188.81
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("CompressedTexture2D_b6hbi")
+expand_mode = 3

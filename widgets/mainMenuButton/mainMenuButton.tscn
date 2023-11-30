@@ -1,0 +1,25 @@
+[gd_scene load_steps=2 format=3 uid="uid://wq5icuo7nio3"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_vff0k"]
+load_path = "res://.godot/imported/buttonTexture.png-166bba8bb76dee5dd4b94aa0ed43bb16.ctex"
+
+[node name="TextureRect" type="TextureRect"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("CompressedTexture2D_vff0k")
+expand_mode = 2
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 100
+text = "Options"
+flat = true

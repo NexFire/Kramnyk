@@ -1,9 +1,12 @@
-[gd_scene load_steps=5 format=3 uid="uid://citjnw7xxqscw"]
+[gd_scene load_steps=6 format=3 uid="uid://citjnw7xxqscw"]
 
 [ext_resource type="Script" path="res://Scripts/MainMenuButtons.gd" id="1_6g83l"]
-[ext_resource type="Texture2D" uid="uid://dk1m0q1gr4weu" path="res://assets/icon/mainScreen.png" id="1_bbd3p"]
-[ext_resource type="PackedScene" uid="uid://jv56pckeptwe" path="res://Scenes/label.tscn" id="2_6j8hd"]
-[ext_resource type="Theme" uid="uid://dhv0uc77tlb8e" path="res://widgets/styles/defaultButtonTheme.tres" id="3_cal7a"]
+[ext_resource type="Texture2D" uid="uid://dk1m0q1gr4weu" path="res://assets/icon/mainScreen.png" id="1_i4eog"]
+[ext_resource type="AudioStream" uid="uid://cj2mso6vyqq0g" path="res://assets/audio/MainMenuBGS.mp3" id="4_glpg0"]
+[ext_resource type="PackedScene" uid="uid://bf21hntmsbjhh" path="res://widgets/mainMenuButton/mainMenuButtonV2.tscn" id="4_x0obt"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_hjx5e"]
+load_path = "res://.godot/imported/MainTitleLabel.png-5191a70f79c0663a51d41fb9d9b8b17a.ctex"
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -12,15 +15,17 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+focus_next = NodePath("MarginContainer/VBoxContainer2/MarginContainer2/VBoxContainer/PlayButton")
 
 [node name="TextureRect" type="TextureRect" parent="."]
+modulate = Color(0.545098, 0.545098, 0.545098, 1)
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("1_bbd3p")
+texture = ExtResource("1_i4eog")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
@@ -35,15 +40,14 @@ theme_override_constants/margin_right = 50
 theme_override_constants/margin_bottom = 50
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer"]
+clip_contents = true
 layout_mode = 2
 
-[node name="Label" type="Label" parent="MarginContainer/VBoxContainer2"]
+[node name="MainTitle" type="TextureRect" parent="MarginContainer/VBoxContainer2"]
 layout_mode = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 80
-text = "KRAMNYK"
-horizontal_alignment = 1
-vertical_alignment = 1
+texture = SubResource("CompressedTexture2D_hjx5e")
+expand_mode = 5
+stretch_mode = 4
 
 [node name="MarginContainer2" type="MarginContainer" parent="MarginContainer/VBoxContainer2"]
 layout_mode = 2
@@ -55,29 +59,36 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_constants/separation = 30
 script = ExtResource("1_6g83l")
-sceneToLoad = ExtResource("2_6j8hd")
 
-[node name="PlayButton" type="Button" parent="MarginContainer/VBoxContainer2/MarginContainer2/VBoxContainer"]
+[node name="PlayButton" parent="MarginContainer/VBoxContainer2/MarginContainer2/VBoxContainer" instance=ExtResource("4_x0obt")]
 layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-theme = ExtResource("3_cal7a")
-theme_override_font_sizes/font_size = 40
+focus_neighbor_left = NodePath("../QuitButton")
+focus_neighbor_top = NodePath("../QuitButton")
+focus_neighbor_right = NodePath("../OptionsButton")
+focus_neighbor_bottom = NodePath("../OptionsButton")
 text = "PLAY"
 
-[node name="OptionsButton" type="Button" parent="MarginContainer/VBoxContainer2/MarginContainer2/VBoxContainer"]
+[node name="OptionsButton" parent="MarginContainer/VBoxContainer2/MarginContainer2/VBoxContainer" instance=ExtResource("4_x0obt")]
 layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-theme = ExtResource("3_cal7a")
-theme_override_font_sizes/font_size = 40
-text = "OPTIONS
-"
+focus_neighbor_left = NodePath("../PlayButton")
+focus_neighbor_top = NodePath("../PlayButton")
+focus_neighbor_right = NodePath("../QuitButton")
+focus_neighbor_bottom = NodePath("../QuitButton")
+text = "OPTIONS"
 
-[node name="QuitButton" type="Button" parent="MarginContainer/VBoxContainer2/MarginContainer2/VBoxContainer"]
+[node name="QuitButton" parent="MarginContainer/VBoxContainer2/MarginContainer2/VBoxContainer" instance=ExtResource("4_x0obt")]
 layout_mode = 2
-theme = ExtResource("3_cal7a")
+focus_neighbor_left = NodePath("../OptionsButton")
+focus_neighbor_top = NodePath("../OptionsButton")
+focus_neighbor_right = NodePath("../PlayButton")
+focus_neighbor_bottom = NodePath("../PlayButton")
 text = "QUIT"
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_glpg0")
+volume_db = 6.89
+autoplay = true
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer2/MarginContainer2/VBoxContainer/PlayButton" to="MarginContainer/VBoxContainer2/MarginContainer2/VBoxContainer" method="_on_PlayButton_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer2/MarginContainer2/VBoxContainer/OptionsButton" to="MarginContainer/VBoxContainer2/MarginContainer2/VBoxContainer" method="_on_OptionsButton_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer2/MarginContainer2/VBoxContainer/QuitButton" to="MarginContainer/VBoxContainer2/MarginContainer2/VBoxContainer" method="_on_QuitButton_pressed"]

@@ -1,0 +1,8 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://c04uvtn1hvg7n"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bm2bj"]
+content_margin_top = 200.0
+draw_center = false
+
+[resource]
+Label/styles/normal = SubResource("StyleBoxFlat_bm2bj")
