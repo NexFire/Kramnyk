@@ -1,0 +1,10 @@
+[gd_resource type="Theme" load_steps=3 format=3 uid="uid://dhv0uc77tlb8e"]
+
+[ext_resource type="StyleBox" uid="uid://cakivb556h3s3" path="res://widgets/styles/defaultButtonStyleHover.tres" id="1_5wfi1"]
+[ext_resource type="StyleBox" uid="uid://cbj5i5k2w821a" path="res://widgets/styles/defaultButtonStyle.tres" id="2_ya1xr"]
+
+[resource]
+default_font_size = 40
+Button/colors/font_color = Color(120.561, 0.937255, 0.964706, 1)
+Button/styles/hover = ExtResource("1_5wfi1")
+Button/styles/normal = ExtResource("2_ya1xr")
