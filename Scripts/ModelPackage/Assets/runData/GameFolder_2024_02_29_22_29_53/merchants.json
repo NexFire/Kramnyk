@@ -1,0 +1,100 @@
+[
+  {
+    "id":0,
+    "name":{
+      "cz":"Hráč",
+      "en":"Player"
+    },
+    "storageId":0,
+    "availableSpace":15,
+    "margin":1
+  },
+  {
+    "id": 1,
+    "name": {
+      "cz": "Jan z Prahy", 
+      "en": "John from Prague"
+    },
+    "margin": 1.2,
+    "marginLimit": 1.3,
+    "storageId": 2,
+    "availableSpace": 25
+  },
+  {
+    "id": 2,
+    "name": {
+      "cz": "Mikuláš z Brna", 
+      "en": "Nicholas from Brno"
+    },
+    "margin": 1.15,
+    "marginLimit": 1.25,
+    "storageId": 3,
+    "availableSpace": 30
+  },
+  {
+    "id": 3,
+    "name": {
+      "cz": "Petr z Českých Budějovic", 
+      "en": "Peter from České Budějovice"
+    },
+    "margin": 1.18,
+    "marginLimit": 1.28,
+    "storageId": 5,
+    "availableSpace": 40
+  },
+  {
+    "id": 4,
+    "name": {
+      "cz": "Jakub z Ostravy", 
+      "en": "Jacob from Ostrava"
+    },
+    "margin": 1.22,
+    "marginLimit": 1.32,
+    "storageId": 1,
+    "availableSpace": 20
+  },
+  {
+    "id": 5,
+    "name": {
+      "cz": "Lukáš z Plzně", 
+      "en": "Lucas from Pilsen"
+    },
+    "margin": 1.25,
+    "marginLimit": 1.35,
+    "storageId": 0,
+    "availableSpace": 15
+  },
+  {
+    "id": 6,
+    "name": {
+      "cz": "Ondřej z Liberce", 
+      "en": "Andrew from Liberec"
+    },
+    "margin": 1.2,
+    "marginLimit": 1.3,
+    "storageId": 2,
+    "availableSpace": 25
+  },
+  {
+    "id": 7,
+    "name": {
+      "cz": "Martin z Olomouce", 
+      "en": "Martin from Olomouc"
+    },
+    "margin": 1.17,
+    "marginLimit": 1.27,
+    "storageId": 3,
+    "availableSpace": 30
+  },
+  {
+    "id": 8,
+    "name": {
+      "cz": "Václav z Karlových Varů", 
+      "en": "Wenceslaus from Karlovy Vary"
+    },
+    "margin": 1.19,
+    "marginLimit": 1.29,
+    "storageId": 5,
+    "availableSpace": 40
+  }
+]

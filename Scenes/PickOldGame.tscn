@@ -1,0 +1,34 @@
+[gd_scene load_steps=3 format=3 uid="uid://cfn5kj3jjhdag"]
+
+[ext_resource type="Script" path="res://Scripts/GUI_S/SelectOldGame.cs" id="1_7pbjd"]
+[ext_resource type="PackedScene" uid="uid://bf21hntmsbjhh" path="res://widgets/mainMenuButton/mainMenuButtonV2.tscn" id="1_ln83p"]
+
+[node name="PickOldGame" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_7pbjd")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="GameFiles" type="ItemList" parent="VBoxContainer"]
+layout_mode = 2
+allow_reselect = true
+auto_height = true
+
+[node name="PickGameButton" parent="VBoxContainer" instance=ExtResource("1_ln83p")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+text = "PICK GAME"
+
+[connection signal="pressed" from="VBoxContainer/PickGameButton" to="." method="SelectOldGameFile"]

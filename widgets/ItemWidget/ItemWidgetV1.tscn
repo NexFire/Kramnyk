@@ -1,0 +1,262 @@
+[gd_scene load_steps=4 format=3 uid="uid://ci6fyrnjrqk8g"]
+
+[ext_resource type="Script" path="res://Scripts/GUI_S/ItemWidget.cs" id="1_n7e8g"]
+[ext_resource type="Theme" uid="uid://cunu3k3kwm8yr" path="res://widgets/ItemWidget/LabelTheme.tres" id="1_v584g"]
+[ext_resource type="PackedScene" uid="uid://bf21hntmsbjhh" path="res://widgets/mainMenuButton/mainMenuButtonV2.tscn" id="2_rqept"]
+
+[node name="ItemWidgetV1" type="Control"]
+custom_minimum_size = Vector2(500, 500)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("1_v584g")
+script = ExtResource("1_n7e8g")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="MainContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="ItemName" type="Label" parent="MarginContainer/MainContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "Item Name"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SpliterContainer" type="HBoxContainer" parent="MarginContainer/MainContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="InfoSide" type="VBoxContainer" parent="MarginContainer/MainContainer/SpliterContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Price" type="HBoxContainer" parent="MarginContainer/MainContainer/SpliterContainer/InfoSide"]
+layout_mode = 2
+size_flags_vertical = 3
+alignment = 1
+
+[node name="PriceText" type="Label" parent="MarginContainer/MainContainer/SpliterContainer/InfoSide/Price"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme = ExtResource("1_v584g")
+text = "CENA:"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PriceValue" type="Label" parent="MarginContainer/MainContainer/SpliterContainer/InfoSide/Price"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme = ExtResource("1_v584g")
+theme_override_font_sizes/font_size = 40
+text = "DEFAULT PRICE"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Amount" type="HBoxContainer" parent="MarginContainer/MainContainer/SpliterContainer/InfoSide"]
+layout_mode = 2
+size_flags_vertical = 3
+alignment = 1
+
+[node name="AmountText" type="Label" parent="MarginContainer/MainContainer/SpliterContainer/InfoSide/Amount"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme = ExtResource("1_v584g")
+text = "MNOŽSTVÍ:"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AmountValue" type="Label" parent="MarginContainer/MainContainer/SpliterContainer/InfoSide/Amount"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme = ExtResource("1_v584g")
+theme_override_font_sizes/font_size = 40
+text = "DEFAULT AMOUNT"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AverageSellPrice" type="HBoxContainer" parent="MarginContainer/MainContainer/SpliterContainer/InfoSide"]
+layout_mode = 2
+size_flags_vertical = 3
+alignment = 1
+
+[node name="AverageSellPriceText" type="Label" parent="MarginContainer/MainContainer/SpliterContainer/InfoSide/AverageSellPrice"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme = ExtResource("1_v584g")
+text = "AVG PRODEJNÍ CENA:"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AverageSellPriceValue" type="Label" parent="MarginContainer/MainContainer/SpliterContainer/InfoSide/AverageSellPrice"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme = ExtResource("1_v584g")
+theme_override_font_sizes/font_size = 40
+text = "AVG SELL PRICE"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AverageBuyPrice" type="HBoxContainer" parent="MarginContainer/MainContainer/SpliterContainer/InfoSide"]
+layout_mode = 2
+size_flags_vertical = 3
+alignment = 1
+
+[node name="AverageBuyPriceText" type="Label" parent="MarginContainer/MainContainer/SpliterContainer/InfoSide/AverageBuyPrice"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme = ExtResource("1_v584g")
+text = "AVG KUPNÍ CENA:"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AverageBuyPriceValue" type="Label" parent="MarginContainer/MainContainer/SpliterContainer/InfoSide/AverageBuyPrice"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme = ExtResource("1_v584g")
+theme_override_font_sizes/font_size = 40
+text = "AVG BUY PRICE"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PiecesSold" type="HBoxContainer" parent="MarginContainer/MainContainer/SpliterContainer/InfoSide"]
+layout_mode = 2
+size_flags_vertical = 3
+alignment = 1
+
+[node name="PiecesSoldText" type="Label" parent="MarginContainer/MainContainer/SpliterContainer/InfoSide/PiecesSold"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme = ExtResource("1_v584g")
+text = "PRODANÉ KUSY:"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PiecesSoldValue" type="Label" parent="MarginContainer/MainContainer/SpliterContainer/InfoSide/PiecesSold"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme = ExtResource("1_v584g")
+theme_override_font_sizes/font_size = 40
+text = "PRODANÉ KUSY"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SpaceComplexity" type="HBoxContainer" parent="MarginContainer/MainContainer/SpliterContainer/InfoSide"]
+layout_mode = 2
+size_flags_vertical = 3
+alignment = 1
+
+[node name="SpaceComplexityText" type="Label" parent="MarginContainer/MainContainer/SpliterContainer/InfoSide/SpaceComplexity"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme = ExtResource("1_v584g")
+text = "Velikost:"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="SpaceComplexityValue" type="Label" parent="MarginContainer/MainContainer/SpliterContainer/InfoSide/SpaceComplexity"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme = ExtResource("1_v584g")
+theme_override_font_sizes/font_size = 40
+text = "Velikost"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="SettingSide" type="VBoxContainer" parent="MarginContainer/MainContainer/SpliterContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Price" type="HBoxContainer" parent="MarginContainer/MainContainer/SpliterContainer/SettingSide"]
+layout_mode = 2
+size_flags_vertical = 3
+alignment = 1
+
+[node name="PriceText" type="Label" parent="MarginContainer/MainContainer/SpliterContainer/SettingSide/Price"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme = ExtResource("1_v584g")
+text = "CENA:"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/MainContainer/SpliterContainer/SettingSide/Price"]
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="SpinBox" type="SpinBox" parent="MarginContainer/MainContainer/SpliterContainer/SettingSide/Price/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+min_value = 1.0
+step = 2.08165e-12
+value = 1.0
+exp_edit = true
+alignment = 1
+custom_arrow_step = 1.0
+
+[node name="Amount" type="HBoxContainer" parent="MarginContainer/MainContainer/SpliterContainer/SettingSide"]
+layout_mode = 2
+size_flags_vertical = 3
+alignment = 1
+
+[node name="AmountText" type="Label" parent="MarginContainer/MainContainer/SpliterContainer/SettingSide/Amount"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme = ExtResource("1_v584g")
+text = "MNOŽSTVÍ:"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/MainContainer/SpliterContainer/SettingSide/Amount"]
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="SpinBox" type="SpinBox" parent="MarginContainer/MainContainer/SpliterContainer/SettingSide/Amount/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+min_value = 1.0
+value = 1.0
+exp_edit = true
+rounded = true
+alignment = 1
+custom_arrow_step = 1.0
+
+[node name="ConfirmButton" parent="MarginContainer/MainContainer/SpliterContainer/SettingSide" instance=ExtResource("2_rqept")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "KOUPIT"

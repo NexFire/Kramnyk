@@ -1,0 +1,452 @@
+[
+  {
+    "Name": {
+      "cz": "Hráč",
+      "en": "Player"
+    },
+    "PriorityItems": [],
+    "icon": "",
+    "Margin": 1.0,
+    "MarginLimit": 0.0,
+    "StorageIndex": 0,
+    "OwnedItems": [
+      {
+        "Price": 3,
+        "Amount": 1,
+        "Id": 1,
+        "Name": {
+          "cz": "Žitná mouka",
+          "en": "Rye Flour"
+        },
+        "Icon": "",
+        "Unit": "kg",
+        "MinPrice": 2,
+        "SpaceComplexity": 1,
+        "Keepable": true,
+        "Importance": 0.0
+      }
+    ],
+    "Id": 0,
+    "AvailableSpace": 14,
+    "Money": 55
+  },
+  {
+    "Name": {
+      "cz": "Jan z Prahy",
+      "en": "John from Prague"
+    },
+    "PriorityItems": [
+      16,
+      3,
+      2,
+      17,
+      4,
+      11,
+      20,
+      0,
+      29,
+      5,
+      35,
+      14,
+      38,
+      9,
+      24,
+      21,
+      1,
+      6,
+      13,
+      12,
+      23
+    ],
+    "icon": "",
+    "Margin": 1.2,
+    "MarginLimit": 1.3,
+    "StorageIndex": 0,
+    "OwnedItems": [
+      {
+        "Price": 12,
+        "Amount": 6,
+        "Id": 16,
+        "Name": {
+          "cz": "Nesolené máslo",
+          "en": "Unsalted Butter"
+        },
+        "Icon": "",
+        "Unit": "kg",
+        "MinPrice": 6,
+        "SpaceComplexity": 1,
+        "Keepable": false,
+        "Importance": 0.0
+      }
+    ],
+    "Id": 1,
+    "AvailableSpace": 19,
+    "Money": 1
+  },
+  {
+    "Name": {
+      "cz": "Mikuláš z Brna",
+      "en": "Nicholas from Brno"
+    },
+    "PriorityItems": [
+      16,
+      3,
+      2,
+      17,
+      4,
+      11,
+      20,
+      0,
+      5,
+      35,
+      14,
+      38,
+      9,
+      24,
+      21,
+      1,
+      6,
+      13,
+      12,
+      23
+    ],
+    "icon": "",
+    "Margin": 1.15,
+    "MarginLimit": 1.25,
+    "StorageIndex": 0,
+    "OwnedItems": [
+      {
+        "Price": 2,
+        "Amount": 2,
+        "Id": 20,
+        "Name": {
+          "cz": "Keramický hrnek",
+          "en": "Ceramic Mug"
+        },
+        "Icon": "",
+        "Unit": "item",
+        "MinPrice": 2,
+        "SpaceComplexity": 2,
+        "Keepable": true,
+        "Importance": 0.0
+      }
+    ],
+    "Id": 2,
+    "AvailableSpace": 26,
+    "Money": 42
+  },
+  {
+    "Name": {
+      "cz": "Petr z Českých Budějovic",
+      "en": "Peter from České Budějovice"
+    },
+    "PriorityItems": [
+      16,
+      3,
+      2,
+      17,
+      4,
+      11,
+      20,
+      0,
+      5,
+      35,
+      14,
+      38,
+      9,
+      24,
+      21,
+      1,
+      6,
+      13,
+      12,
+      23
+    ],
+    "icon": "",
+    "Margin": 1.18,
+    "MarginLimit": 1.28,
+    "StorageIndex": 0,
+    "OwnedItems": [],
+    "Id": 3,
+    "AvailableSpace": 40,
+    "Money": 45
+  },
+  {
+    "Name": {
+      "cz": "Jakub z Ostravy",
+      "en": "Jacob from Ostrava"
+    },
+    "PriorityItems": [
+      16,
+      3,
+      2,
+      17,
+      4,
+      11,
+      20,
+      0,
+      29,
+      5,
+      35,
+      14,
+      38,
+      9,
+      24,
+      21,
+      1,
+      6,
+      13,
+      12,
+      23
+    ],
+    "icon": "",
+    "Margin": 1.22,
+    "MarginLimit": 1.32,
+    "StorageIndex": 0,
+    "OwnedItems": [],
+    "Id": 4,
+    "AvailableSpace": 20,
+    "Money": 53
+  },
+  {
+    "Name": {
+      "cz": "Lukáš z Plzně",
+      "en": "Lucas from Pilsen"
+    },
+    "PriorityItems": [
+      16,
+      3,
+      2,
+      17,
+      4,
+      11,
+      20,
+      0,
+      29,
+      5,
+      35,
+      14,
+      38,
+      9,
+      24,
+      21,
+      1,
+      6,
+      13,
+      12,
+      23
+    ],
+    "icon": "",
+    "Margin": 1.25,
+    "MarginLimit": 1.35,
+    "StorageIndex": 0,
+    "OwnedItems": [
+      {
+        "Price": 12,
+        "Amount": 1,
+        "Id": 16,
+        "Name": {
+          "cz": "Nesolené máslo",
+          "en": "Unsalted Butter"
+        },
+        "Icon": "",
+        "Unit": "kg",
+        "MinPrice": 6,
+        "SpaceComplexity": 1,
+        "Keepable": false,
+        "Importance": 0.0
+      },
+      {
+        "Price": 13,
+        "Amount": 2,
+        "Id": 4,
+        "Name": {
+          "cz": "Jemná sůl",
+          "en": "Fine Salt"
+        },
+        "Icon": "",
+        "Unit": "kg",
+        "MinPrice": 6,
+        "SpaceComplexity": 1,
+        "Keepable": true,
+        "Importance": 0.0
+      }
+    ],
+    "Id": 5,
+    "AvailableSpace": 12,
+    "Money": 48
+  },
+  {
+    "Name": {
+      "cz": "Ondřej z Liberce",
+      "en": "Andrew from Liberec"
+    },
+    "PriorityItems": [
+      16,
+      3,
+      2,
+      17,
+      4,
+      11,
+      20,
+      0,
+      29,
+      5,
+      35,
+      14,
+      38,
+      9,
+      24,
+      21,
+      1,
+      6,
+      13,
+      12,
+      23
+    ],
+    "icon": "",
+    "Margin": 1.2,
+    "MarginLimit": 1.3,
+    "StorageIndex": 0,
+    "OwnedItems": [
+      {
+        "Price": 12,
+        "Amount": 6,
+        "Id": 16,
+        "Name": {
+          "cz": "Nesolené máslo",
+          "en": "Unsalted Butter"
+        },
+        "Icon": "",
+        "Unit": "kg",
+        "MinPrice": 6,
+        "SpaceComplexity": 1,
+        "Keepable": false,
+        "Importance": 0.0
+      }
+    ],
+    "Id": 6,
+    "AvailableSpace": 19,
+    "Money": 2
+  },
+  {
+    "Name": {
+      "cz": "Martin z Olomouce",
+      "en": "Martin from Olomouc"
+    },
+    "PriorityItems": [
+      16,
+      3,
+      2,
+      17,
+      4,
+      11,
+      20,
+      0,
+      29,
+      5,
+      35,
+      14,
+      38,
+      9,
+      24,
+      21,
+      1,
+      6,
+      13,
+      12,
+      23
+    ],
+    "icon": "",
+    "Margin": 1.17,
+    "MarginLimit": 1.27,
+    "StorageIndex": 0,
+    "OwnedItems": [
+      {
+        "Price": 11,
+        "Amount": 1,
+        "Id": 16,
+        "Name": {
+          "cz": "Nesolené máslo",
+          "en": "Unsalted Butter"
+        },
+        "Icon": "",
+        "Unit": "kg",
+        "MinPrice": 6,
+        "SpaceComplexity": 1,
+        "Keepable": false,
+        "Importance": 0.0
+      },
+      {
+        "Price": 2,
+        "Amount": 3,
+        "Id": 20,
+        "Name": {
+          "cz": "Keramický hrnek",
+          "en": "Ceramic Mug"
+        },
+        "Icon": "",
+        "Unit": "item",
+        "MinPrice": 2,
+        "SpaceComplexity": 2,
+        "Keepable": true,
+        "Importance": 0.0
+      }
+    ],
+    "Id": 7,
+    "AvailableSpace": 23,
+    "Money": 55
+  },
+  {
+    "Name": {
+      "cz": "Václav z Karlových Varů",
+      "en": "Wenceslaus from Karlovy Vary"
+    },
+    "PriorityItems": [
+      16,
+      3,
+      2,
+      17,
+      4,
+      11,
+      20,
+      0,
+      5,
+      35,
+      14,
+      38,
+      9,
+      24,
+      21,
+      1,
+      6,
+      13,
+      12,
+      23
+    ],
+    "icon": "",
+    "Margin": 1.19,
+    "MarginLimit": 1.29,
+    "StorageIndex": 0,
+    "OwnedItems": [
+      {
+        "Price": 11,
+        "Amount": 2,
+        "Id": 16,
+        "Name": {
+          "cz": "Nesolené máslo",
+          "en": "Unsalted Butter"
+        },
+        "Icon": "",
+        "Unit": "kg",
+        "MinPrice": 6,
+        "SpaceComplexity": 1,
+        "Keepable": false,
+        "Importance": 0.0
+      }
+    ],
+    "Id": 8,
+    "AvailableSpace": 38,
+    "Money": 21
+  }
+]

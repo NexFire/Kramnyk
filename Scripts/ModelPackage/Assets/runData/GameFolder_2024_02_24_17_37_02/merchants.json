@@ -1,0 +1,210 @@
+[
+  {
+    "Name": {
+      "cz": "Hráč",
+      "en": "Player"
+    },
+    "PriorityItems": [],
+    "icon": "",
+    "Margin": 1.0,
+    "MarginLimit": 0.0,
+    "StorageIndex": 0,
+    "OwnedItems": [
+      {
+        "Price": 4,
+        "Amount": 1,
+        "Id": 0,
+        "Name": {
+          "cz": "Pšeničná mouka",
+          "en": "Wheat Flour"
+        },
+        "Icon": "",
+        "Unit": "kg",
+        "MinPrice": 3,
+        "SpaceComplexity": 1,
+        "Keepable": true
+      },
+      {
+        "Price": 3,
+        "Amount": 1,
+        "Id": 1,
+        "Name": {
+          "cz": "Žitná mouka",
+          "en": "Rye Flour"
+        },
+        "Icon": "",
+        "Unit": "kg",
+        "MinPrice": 2,
+        "SpaceComplexity": 1,
+        "Keepable": true
+      }
+    ],
+    "Id": 0,
+    "AvailableSpace": 13,
+    "Money": 38
+  },
+  {
+    "Name": {
+      "cz": "Jan z Prahy",
+      "en": "John from Prague"
+    },
+    "PriorityItems": [
+      16,
+      3,
+      19,
+      2,
+      37,
+      17,
+      4,
+      25,
+      31,
+      11,
+      20,
+      0,
+      29,
+      5,
+      35,
+      38,
+      30,
+      9,
+      10,
+      21,
+      1,
+      6,
+      18,
+      13,
+      36,
+      39,
+      7,
+      23
+    ],
+    "icon": "",
+    "Margin": 1.2,
+    "MarginLimit": 1.3,
+    "StorageIndex": 0,
+    "OwnedItems": [
+      {
+        "Price": 10,
+        "Amount": 8,
+        "Id": 16,
+        "Name": {
+          "cz": "Nesolené máslo",
+          "en": "Unsalted Butter"
+        },
+        "Icon": "",
+        "Unit": "kg",
+        "MinPrice": 6,
+        "SpaceComplexity": 1,
+        "Keepable": false
+      }
+    ],
+    "Id": 1,
+    "AvailableSpace": 17,
+    "Money": 2
+  },
+  {
+    "Name": {
+      "cz": "Mikuláš z Brna",
+      "en": "Nicholas from Brno"
+    },
+    "PriorityItems": [],
+    "icon": "",
+    "Margin": 1.15,
+    "MarginLimit": 1.25,
+    "StorageIndex": 0,
+    "OwnedItems": [],
+    "Id": 2,
+    "AvailableSpace": 30,
+    "Money": 79
+  },
+  {
+    "Name": {
+      "cz": "Petr z Českých Budějovic",
+      "en": "Peter from České Budějovice"
+    },
+    "PriorityItems": [],
+    "icon": "",
+    "Margin": 1.18,
+    "MarginLimit": 1.28,
+    "StorageIndex": 0,
+    "OwnedItems": [],
+    "Id": 3,
+    "AvailableSpace": 40,
+    "Money": 78
+  },
+  {
+    "Name": {
+      "cz": "Jakub z Ostravy",
+      "en": "Jacob from Ostrava"
+    },
+    "PriorityItems": [],
+    "icon": "",
+    "Margin": 1.22,
+    "MarginLimit": 1.32,
+    "StorageIndex": 0,
+    "OwnedItems": [],
+    "Id": 4,
+    "AvailableSpace": 20,
+    "Money": 58
+  },
+  {
+    "Name": {
+      "cz": "Lukáš z Plzně",
+      "en": "Lucas from Pilsen"
+    },
+    "PriorityItems": [],
+    "icon": "",
+    "Margin": 1.25,
+    "MarginLimit": 1.35,
+    "StorageIndex": 0,
+    "OwnedItems": [],
+    "Id": 5,
+    "AvailableSpace": 15,
+    "Money": 69
+  },
+  {
+    "Name": {
+      "cz": "Ondřej z Liberce",
+      "en": "Andrew from Liberec"
+    },
+    "PriorityItems": [],
+    "icon": "",
+    "Margin": 1.2,
+    "MarginLimit": 1.3,
+    "StorageIndex": 0,
+    "OwnedItems": [],
+    "Id": 6,
+    "AvailableSpace": 25,
+    "Money": 66
+  },
+  {
+    "Name": {
+      "cz": "Martin z Olomouce",
+      "en": "Martin from Olomouc"
+    },
+    "PriorityItems": [],
+    "icon": "",
+    "Margin": 1.17,
+    "MarginLimit": 1.27,
+    "StorageIndex": 0,
+    "OwnedItems": [],
+    "Id": 7,
+    "AvailableSpace": 30,
+    "Money": 54
+  },
+  {
+    "Name": {
+      "cz": "Václav z Karlových Varů",
+      "en": "Wenceslaus from Karlovy Vary"
+    },
+    "PriorityItems": [],
+    "icon": "",
+    "Margin": 1.19,
+    "MarginLimit": 1.29,
+    "StorageIndex": 0,
+    "OwnedItems": [],
+    "Id": 8,
+    "AvailableSpace": 40,
+    "Money": 77
+  }
+]
