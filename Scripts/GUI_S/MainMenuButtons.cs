@@ -8,13 +8,17 @@ public partial class MainMenuButtons : Control
     // public Node playScene;
     //public Node optionScene;
     // Equivalent to GDScript's _ready() function
+    private int countDone = 0;
     public override void _Ready()
     {
         count = 0;
         //playScene = ResourceLoader.Load<PackedScene>("res://Scenes/label.tscn").Instantiate();
         //optionScene = ResourceLoader.Load<PackedScene>("res://Scenes/label.tscn").Instantiate();
         world = GetNode<World>("/root/world");
-        world.LoadStartAssets("Assets/config/filesConfig.json");
+        if (world.GameString == null)
+        {
+            world.LoadStartAssets("Assets/config/filesConfig.json");
+        }
     }
 
     // Equivalent to GDScript's _input(event) function
