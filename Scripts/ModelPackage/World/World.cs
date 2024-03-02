@@ -66,7 +66,6 @@ public partial class World : Node
         merchants = Merchant.LoadMerchants(GetAssetPath("bots"));
         oldSalesData = SalesData.LoadSalesData(GetAssetPath("salesData"));
         GD.Print(oldSalesData);
-        newSalesData = NewSalesData.LoadNewSalesData(oldSalesData);
     }
     public void LoadOldGame(string oldGameString)
     {
@@ -104,8 +103,11 @@ public partial class World : Node
                 throw new Exception("You are not in game therefore you cant save the game");
             }
             string merchantsJson = JsonConvert.SerializeObject(merchants, Formatting.Indented);
-            string filePath = Path.Combine(GameString, "merchants.json");
-            File.WriteAllText(filePath, merchantsJson);
+            string saleDataJson = JsonConvert.SerializeObject(oldSalesData, Formatting.Indented);
+            string merchantsFilePath = Path.Combine(GameString, "merchants.json");
+            string salesDataFilePath = Path.Combine(GameString, "salesData.json");
+            File.WriteAllText(merchantsFilePath, merchantsJson);
+            File.WriteAllText(salesDataFilePath, saleDataJson);
             Console.WriteLine("Soubor zapsán");
         }
         catch (Exception e)
@@ -170,7 +172,9 @@ public partial class World : Node
     {
         foreach (var wantedItem in wantedItems)
         {
-            var sortedMerchants = merchants.OrderBy(merchant => merchant.OwnedItems.FirstOrDefault(item => item.Id == wantedItem.Id)?.Price ?? int.MaxValue).ToList();
+            GD.Print("This is a shait shit");
+            var sortedMerchants = merchants.OrderBy(merchant => merchant.OwnedItems.FirstOrDefault(item => item.Id == wantedItem.Id, null)?.Price ?? int.MaxValue).ToList();
+            GD.Print("This is after the linq");
             var salesItemData = newSalesData.FirstOrDefault(item => item.ProductId == wantedItem.Id, null);
             if (salesItemData == null)
             {

@@ -1,0 +1,62 @@
+[gd_scene load_steps=4 format=3 uid="uid://7pc5ioswd8gp"]
+
+[ext_resource type="Script" path="res://Scripts/GUI_S/PauseMenuScript.cs" id="1_431sp"]
+[ext_resource type="Material" uid="uid://wdb4d5yld8nm" path="res://assets/materials/blur.tres" id="1_krkmn"]
+[ext_resource type="PackedScene" uid="uid://bf21hntmsbjhh" path="res://widgets/mainMenuButton/mainMenuButtonV2.tscn" id="2_cegyb"]
+
+[node name="PauseMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_431sp")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+z_index = 5
+material = ExtResource("1_krkmn")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+z_index = 6
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 50
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 30
+
+[node name="HFlowContainer" type="HFlowContainer" parent="MarginContainer/VBoxContainer2"]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer2/HFlowContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 80
+text = "Pause Menu"
+
+[node name="QuitButton" parent="MarginContainer/VBoxContainer2" instance=ExtResource("2_cegyb")]
+z_index = 6
+layout_mode = 2
+size_flags_horizontal = 4
+focus_neighbor_right = NodePath("../StartNewGame")
+focus_neighbor_bottom = NodePath("../StartNewGame")
+text = "QUIT"
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer2/QuitButton" to="." method="OnQuitButton"]

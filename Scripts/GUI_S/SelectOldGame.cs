@@ -8,7 +8,7 @@ public partial class SelectOldGame : Control
     World world;
     public override void _Ready()
     {
-        itemList = GetNode<ItemList>("VBoxContainer/GameFiles");
+        itemList = GetNode<ItemList>("VBoxContainer/ScrollContainer/GameFiles");
         world = GetNode<World>("/root/world");
         filesAndTimes = world.GetOldGames();
         foreach (var fileAndTime in filesAndTimes)

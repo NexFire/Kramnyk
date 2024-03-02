@@ -6,6 +6,7 @@ using System.IO;
 using System.Linq;
 using System.Reflection.Metadata.Ecma335;
 using System.Runtime.CompilerServices;
+using Godot;
 using Newtonsoft.Json;
 
 namespace ModelPackage.World
@@ -118,9 +119,20 @@ namespace ModelPackage.World
             {
                 DeltaMoney(-1 * item.Price * item.Amount);
                 DeltaSpace(-1 * item.SpaceComplexity * item.Amount);
-                item.Price = (int)(item.Price * Margin);
+                if (Id == 0)
+                {
+                    item.Price = (int)Margin;
+                }
+                else
+                {
+                    item.Price = (int)(item.Price * Margin);
+                }
                 OwnedItems.Add(item);
                 return true;
+            }
+            if (Id == 0)
+            {
+                OS.Alert("Nemáte dost místa nebo dost peněz na zakoupení položky");
             }
             return false;
         }

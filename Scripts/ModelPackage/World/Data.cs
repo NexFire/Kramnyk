@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using Godot;
 using Newtonsoft.Json;
 
 namespace ModelPackage.World
@@ -24,32 +25,45 @@ namespace ModelPackage.World
         }
         public void SetAverageSellPrice(List<int> sellPrices)
         {
-            if (sellPrices.Count > PiecesSold)
+            if (sellPrices.Any())
             {
-                AverageSellPrice = (float)sellPrices.Take(PiecesSold).Average();
+                GD.Print("S1");
+                if (sellPrices.Count > PiecesSold)
+                {
+                    GD.Print(PiecesSold);
+                    AverageSellPrice = (float)sellPrices.Take(PiecesSold).Average();
+                }
+                GD.Print("S2");
+                if (sellPrices.Count < PiecesSold)
+                {
+                    PiecesSold = sellPrices.Count;
+                }
+                GD.Print("S3");
+                AverageSellPrice = (float)sellPrices.Average();
+                GD.Print("S4");
             }
-            if (sellPrices.Count < PiecesSold)
-            {
-                PiecesSold = sellPrices.Count;
-            }
-            AverageSellPrice = (float)sellPrices.Average();
+
         }
         public void SetAverageBuyPrice(List<int> buyPrices)
         {
-            if (buyPrices.Count > PiecesSold)
+            if (buyPrices.Any())
             {
-                AverageSellPrice = (float)buyPrices.Take(PiecesSold).Average();
+                if (buyPrices.Count > PiecesSold)
+                {
+                    AverageSellPrice = (float)buyPrices.Take(PiecesSold).Average();
+                }
+
+                if (buyPrices.Count < PiecesSold)
+                {
+                    PiecesSold = buyPrices.Count;
+                }
+                AverageSellPrice = (float)buyPrices.Average();
             }
-            if (buyPrices.Count < PiecesSold)
-            {
-                PiecesSold = buyPrices.Count;
-            }
-            AverageSellPrice = (float)buyPrices.Average();
         }
 
         public void SoldPieces(int soldPieces)
         {
-            if (soldPieces <= 0)
+            if (soldPieces > 0)
             {
                 PiecesSold += soldPieces;
             }
@@ -82,16 +96,22 @@ namespace ModelPackage.World
         {
 
         }
-        public List<SalesData> LoadNewSalesDataToOldSalesData(List<NewSalesData> newSalesDatas)
+        public static List<SalesData> LoadNewSalesDataToOldSalesData(List<NewSalesData> newSalesDatas)
         {
             List<SalesData> salesData = new();
             foreach (var newSaleData in newSalesDatas)
             {
+                GD.Print("T1");
                 salesData.Add(new SalesData(newSaleData.ProductId));
+                GD.Print("T2");
                 var item = salesData.Last();
+                GD.Print("T3");
                 item.SetSoldPieces(newSaleData.PiecesSold);
+                GD.Print("T4");
                 item.SetAverageBuyPrice(newSaleData.BuyPrices);
+                GD.Print("T5");
                 item.SetAverageSellPrice(newSaleData.SellPrices);
+                GD.Print("T6");
             }
             return salesData;
         }

@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://c6u0joybqicpy"]
+[gd_scene load_steps=4 format=3 uid="uid://c6u0joybqicpy"]
 
 [ext_resource type="Script" path="res://Scripts/GUI_S/SelectItems.cs" id="1_kq4jt"]
 [ext_resource type="PackedScene" uid="uid://bf21hntmsbjhh" path="res://widgets/mainMenuButton/mainMenuButtonV2.tscn" id="1_scvu2"]
+[ext_resource type="PackedScene" uid="uid://7pc5ioswd8gp" path="res://Scenes/PauseMenu.tscn" id="3_slfky"]
 
 [node name="GameScreen" type="Control"]
 layout_mode = 3
@@ -62,8 +63,6 @@ horizontal_alignment = 1
 
 [node name="ConfirmButton" parent="VBoxContainer/HBoxContainer" instance=ExtResource("1_scvu2")]
 layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
 text = "POTVRDIT"
 
 [node name="AvailableSpace" type="HBoxContainer" parent="VBoxContainer/HBoxContainer"]
@@ -81,3 +80,10 @@ layout_mode = 2
 size_flags_horizontal = 3
 text = "VOLNÉ MÍSTO"
 horizontal_alignment = 1
+
+[node name="PauseMenu" parent="." instance=ExtResource("3_slfky")]
+visible = false
+z_index = 6
+layout_mode = 1
+
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/ConfirmButton" to="." method="ContinueCycle"]
