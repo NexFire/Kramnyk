@@ -1,0 +1,8 @@
+res://Scenes/MainMenu.tscn
+res://Scripts/GUI_S/ItemWidget.cs
+res://Scripts/GUI_S/MainMenuButtons.cs
+res://Scripts/GUI_S/PauseMenuScript.cs
+res://Scripts/GUI_S/SelectItems.cs
+res://Scripts/GUI_S/SelectOldGame.cs
+res://Scripts/GUI_S/SummaryScreenScript.cs
+res://Scripts/ModelPackage/World/World.cs

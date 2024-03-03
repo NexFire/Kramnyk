@@ -1,0 +1,7 @@
+{
+    "configAssetsPath":"Assets/config",
+    "items":"availableItems.json",
+    "markets":"buyInMarkets.json",
+    "storages":"storages.json",
+    "copyFilesPath":"copyFiles"
+}
