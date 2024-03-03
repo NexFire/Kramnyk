@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://borw5dg8v2x4g"
-path="res://.godot/imported/BoxIcon.webp-42654b1cf381a51f9bd61c3f5a2881e1.ctex"
+uid="uid://b8q4vofq3yqf4"
+path="res://.godot/imported/chetBox.webp-e50ff21cae55f4c3805cbb477c833aed.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/icon/BoxIcon.webp"
-dest_files=["res://.godot/imported/BoxIcon.webp-42654b1cf381a51f9bd61c3f5a2881e1.ctex"]
+source_file="res://assets/icon/chetBox.webp"
+dest_files=["res://.godot/imported/chetBox.webp-e50ff21cae55f4c3805cbb477c833aed.ctex"]
 
 [params]
 

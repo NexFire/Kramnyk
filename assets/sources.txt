@@ -1,0 +1,8 @@
+Main Menu music ( Main Menu music ) - https://pixabay.com/music/beautiful-plays-medieval-fantasy-142837/
+Market Day ( music in rest of the game )- https://www.chosic.com/download-audio/27016/
+blur efect ( gshader file ) - https://github.com/MinaPecheux/godot-tutorials/blob/main/18-PauseScreen/art/shaders/blur.gdshader
+blur effet ( tres file ) - https://github.com/MinaPecheux/godot-tutorials/blob/main/18-PauseScreen/art/materials/blur.tres
+Back ground Images and game icon ( generated with ChatGPT DAll-E ) - https://chat.openai.com
+Main Title graphics ( shutterstock ) - https://download.shutterstock.com/gatekeeper/W3siZCI6ICJzaHV0dGVyc3RvY2stbWVkaWEiLCAiayI6ICJwaG90by8yMzQwMDY3NDUzL2h1Z2UuanBnIiwgImRjIjogImlkbF8xMjMiLCAiZSI6IDE3MDA4MDUzMTgsICJtIjogMX0sICIwdnVCZzMzVVJXVWpKUjZwNThOd2NrYVJHSkUiXQ==/shutterstock_2340067453.jpg
+buttons graphics ( shutterstock ) - https://download.shutterstock.com/gatekeeper/W3siZCI6ICJzaHV0dGVyc3RvY2stbWVkaWEiLCAiayI6ICJwaG90by8yMTMxMjk5MjU5L2h1Z2UuanBnIiwgImRjIjogImlkbF8xMjMiLCAiZSI6IDE3MDA4MDUyNDksICJtIjogMX0sICIxejIxMXh5cnJPMFFNNHgwVE9XektQYzFwamciXQ==/shutterstock_2131299259.jpg
+
