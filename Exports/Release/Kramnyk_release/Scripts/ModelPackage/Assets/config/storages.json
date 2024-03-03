@@ -1,0 +1,106 @@
+[
+    {
+    "id": 0,
+    "capacity": 15,
+    "name": {
+        "cz": "Malá Skladiště",
+        "en": "Small Storage"
+    }
+    },
+    {
+    "id": 1,
+    "capacity": 20,
+    "name": {
+        "cz": "Větší Skladiště",
+        "en": "Bigger Storage"
+    }
+    },
+    {
+    "id": 2,
+    "capacity": 25,
+    "name": {
+        "cz": "Velká Skladiště",
+        "en": "Large Storage"
+    }
+    },
+    {
+    "id": 3,
+    "capacity": 30,
+    "name": {
+        "cz": "Obří Skladiště",
+        "en": "Giant Storage"
+    }
+    },
+    {
+    "id": 4,
+    "capacity": 35,
+    "name": {
+        "cz": "Královská Skladiště",
+        "en": "Royal Storage"
+    }
+    },
+    {
+    "id": 5,
+    "capacity": 40,
+    "name": {
+        "cz": "Císařské Skladiště",
+        "en": "Imperial Storage"
+    }
+    },
+    {
+    "id": 6,
+    "capacity": 45,
+    "name": {
+        "cz": "Božské Skladiště",
+        "en": "Divine Storage"
+    }
+    },
+    {
+    "id": 7,
+    "capacity": 50,
+    "name": {
+        "cz": "Legendární Skladiště",
+        "en": "Legendary Storage"
+    }
+    },
+    {
+    "id": 8,
+    "capacity": 55,
+    "name": {
+        "cz": "Mystické Skladiště",
+        "en": "Mystic Storage"
+    }
+    },
+    {
+    "id": 9,
+    "capacity": 60,
+    "name": {
+        "cz": "Nesmrtelné Skladiště",
+        "en": "Immortal Storage"
+    }
+    },
+    {
+    "id": 10,
+    "capacity": 65,
+    "name": {
+        "cz": "Věčné Skladiště",
+        "en": "Eternal Storage"
+    }
+    },
+    {
+    "id": 11,
+    "capacity": 70,
+    "name": {
+        "cz": "Neomezené Skladiště",
+        "en": "Unlimited Storage"
+    }
+    },
+    {
+    "id": 12,
+    "capacity": 75,
+    "name": {
+        "cz": "Extra Skladiště",
+        "en": "Extra Storage"
+    }
+    }
+]
