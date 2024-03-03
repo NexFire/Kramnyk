@@ -14,50 +14,50 @@ namespace ModelPackage.World
         [JsonProperty]
         public float AverageBuyPrice { get; private set; }
         [JsonProperty]
+        public int OAPiecesBought { get; private set; }
+        public int OAPiecesSold { get; private set; }
+        [JsonProperty]
         public float AverageSellPrice { get; private set; }
         [JsonProperty]
         public int PiecesSold { get; private set; }
         public SalesData() { }
-        public SalesData(int Id)
+        public SalesData(NewSalesData newSaleData)
         {
-            ProductId = Id;
+            ProductId = newSaleData.ProductId;
+            PiecesSold = newSaleData.PiecesSold;
+            OAPiecesBought = newSaleData.OAPiecesBought;
+            OAPiecesSold = newSaleData.OAPiecesSold;
+            AverageBuyPrice = newSaleData.AverageBuyPrice;
+            AverageSellPrice = newSaleData.AverageSellPrice;
+            SetAverageBuyPrice(newSaleData.BuyPrices);
+            SetAverageSellPrice(newSaleData.SellPrices);
+        }
+        public SalesData(SalesData saleData)
+        {
+            ProductId = saleData.ProductId;
             PiecesSold = 0;
+            OAPiecesBought = saleData.OAPiecesBought;
+            OAPiecesSold = saleData.OAPiecesSold;
+            AverageBuyPrice = saleData.AverageBuyPrice;
+            AverageSellPrice = saleData.AverageSellPrice;
         }
         public void SetAverageSellPrice(List<int> sellPrices)
         {
+
             if (sellPrices.Any())
             {
-                GD.Print("S1");
-                if (sellPrices.Count > PiecesSold)
-                {
-                    GD.Print(PiecesSold);
-                    AverageSellPrice = (float)sellPrices.Take(PiecesSold).Average();
-                }
-                GD.Print("S2");
-                if (sellPrices.Count < PiecesSold)
-                {
-                    PiecesSold = sellPrices.Count;
-                }
-                GD.Print("S3");
-                AverageSellPrice = (float)sellPrices.Average();
-                GD.Print("S4");
+                var averageSum = OAPiecesSold * AverageSellPrice;
+                OAPiecesSold += sellPrices.Count;
+                AverageSellPrice = ((float)sellPrices.Sum() + averageSum) / OAPiecesSold;
             }
-
         }
         public void SetAverageBuyPrice(List<int> buyPrices)
         {
             if (buyPrices.Any())
             {
-                if (buyPrices.Count > PiecesSold)
-                {
-                    AverageSellPrice = (float)buyPrices.Take(PiecesSold).Average();
-                }
-
-                if (buyPrices.Count < PiecesSold)
-                {
-                    PiecesSold = buyPrices.Count;
-                }
-                AverageSellPrice = (float)buyPrices.Average();
+                var averageSum = OAPiecesBought * AverageBuyPrice;
+                OAPiecesBought += buyPrices.Count;
+                AverageBuyPrice = ((float)buyPrices.Sum() + averageSum) / OAPiecesBought;
             }
         }
 
@@ -67,6 +67,7 @@ namespace ModelPackage.World
             {
                 PiecesSold += soldPieces;
             }
+
         }
         public void SetSoldPieces(int soldPieces)
         {
@@ -92,7 +93,7 @@ namespace ModelPackage.World
         public List<int> SellPrices = new();
         public List<int> BuyPrices = new();
 
-        public NewSalesData(SalesData saleData) : base(saleData.ProductId)
+        public NewSalesData(SalesData saleData) : base(saleData)
         {
 
         }
@@ -101,17 +102,7 @@ namespace ModelPackage.World
             List<SalesData> salesData = new();
             foreach (var newSaleData in newSalesDatas)
             {
-                GD.Print("T1");
-                salesData.Add(new SalesData(newSaleData.ProductId));
-                GD.Print("T2");
-                var item = salesData.Last();
-                GD.Print("T3");
-                item.SetSoldPieces(newSaleData.PiecesSold);
-                GD.Print("T4");
-                item.SetAverageBuyPrice(newSaleData.BuyPrices);
-                GD.Print("T5");
-                item.SetAverageSellPrice(newSaleData.SellPrices);
-                GD.Print("T6");
+                salesData.Add(new SalesData(newSaleData));
             }
             return salesData;
         }

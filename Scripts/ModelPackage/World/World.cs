@@ -61,11 +61,11 @@ public partial class World : Node
 
     public void LoadGameAssets()
     {
-        GD.Print("Yes we are loading this");
+
         gameFilesConfig = LoadFilesConfig(Path.Combine(GameString, "filesConfig.json"), GameFileRequiredArgs);
         merchants = Merchant.LoadMerchants(GetAssetPath("bots"));
         oldSalesData = SalesData.LoadSalesData(GetAssetPath("salesData"));
-        GD.Print(oldSalesData);
+
     }
     public void LoadOldGame(string oldGameString)
     {
@@ -127,7 +127,6 @@ public partial class World : Node
             if (!Directory.Exists(directoryPath))
             {
                 Directory.CreateDirectory(directoryPath);
-                GD.Print($"Folder '{directoryPath}' created successfully.");
             }
             else
             {
@@ -155,7 +154,7 @@ public partial class World : Node
     }
     public void GenerateWantedItems()
     {
-        System.Random random = new();
+        Random random = new();
         wantedItems = new();
         var oneDayMargin = 2 * random.NextDouble() + 1;
         foreach (var item in availableItems)
@@ -172,9 +171,9 @@ public partial class World : Node
     {
         foreach (var wantedItem in wantedItems)
         {
-            GD.Print("This is a shait shit");
+
             var sortedMerchants = merchants.OrderBy(merchant => merchant.OwnedItems.FirstOrDefault(item => item.Id == wantedItem.Id, null)?.Price ?? int.MaxValue).ToList();
-            GD.Print("This is after the linq");
+
             var salesItemData = newSalesData.FirstOrDefault(item => item.ProductId == wantedItem.Id, null);
             if (salesItemData == null)
             {

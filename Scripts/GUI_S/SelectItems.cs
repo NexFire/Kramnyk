@@ -10,8 +10,8 @@ public partial class SelectItems : Control
     {
         world = GetNode<World>("/root/world");
         CycleStart();
-        moneyLabel = GetNode<Label>("VBoxContainer/HBoxContainer/MoneyAmount/MoneyAmountValue");
-        spaceLabel = GetNode<Label>("VBoxContainer/HBoxContainer/AvailableSpace/AvailableSpaceValue");
+        moneyLabel = GetNode<Label>("VBoxContainer/ColorRect/HBoxContainer/MoneyAmount/MoneyAmountValue");
+        spaceLabel = GetNode<Label>("VBoxContainer/ColorRect/HBoxContainer/AvailableSpace/AvailableSpaceValue");
         var _vBoxCont = GetNode<VBoxContainer>("VBoxContainer/ScrollContainer/VBoxContainer");
         PackedScene itemWidget = ResourceLoader.Load<PackedScene>("res://widgets/ItemWidget/ItemWidgetV1.tscn");
         if (itemWidget != null)
@@ -30,6 +30,11 @@ public partial class SelectItems : Control
             }
         }
         SetMoneyAndSpace();
+        var backGroudMusic = GetNode<AudioStreamPlayer>("/root/BGM");
+        if (!backGroudMusic.Playing)
+        {
+            backGroudMusic.Play();
+        }
         base._Ready();
     }
     private void CycleStart()
@@ -39,12 +44,10 @@ public partial class SelectItems : Control
         {
             market.GenerateItems(world.availableItems);
         }
-        GD.Print(world.GameString);
         foreach (var merchant in world.merchants.Skip(1))
         {
-            merchant.BuyItems(world.availableItems, world.markets, world.oldSalesData);
+            merchant.BuyItems(world.availableItems, world.markets, world.oldSalesData, world.newSalesData);
         }
-        GD.Print("AAA");
     }
     public override void _Input(InputEvent @event)
     {

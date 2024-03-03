@@ -57,9 +57,7 @@ public partial class MainMenuButtons : Control
 
     public void OnQuitButtonPressed()
     {
-        // Assuming 'world' is accessible and has myArray and availableItems properties.
-        // You need to have 'world' defined and accessible in this context.
-        OS.Alert("Ahoj, jsi matlák", "Důležité oznámení");
-        GD.Print(world.modelPath);
+        GetTree().Quit();
+
     }
 }

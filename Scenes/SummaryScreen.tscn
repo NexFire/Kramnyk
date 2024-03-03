@@ -1,8 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://ft7484gucyf4"]
+[gd_scene load_steps=6 format=3 uid="uid://ft7484gucyf4"]
 
 [ext_resource type="Script" path="res://Scripts/GUI_S/SummaryScreenScript.cs" id="1_6n7lb"]
 [ext_resource type="PackedScene" uid="uid://bf21hntmsbjhh" path="res://widgets/mainMenuButton/mainMenuButtonV2.tscn" id="1_x4dko"]
+[ext_resource type="Texture2D" uid="uid://byvk6q1rhw4ox" path="res://assets/icon/summaryBoard.webp" id="2_plca0"]
 [ext_resource type="PackedScene" uid="uid://7pc5ioswd8gp" path="res://Scenes/PauseMenu.tscn" id="3_fkj84"]
+[ext_resource type="FontFile" uid="uid://denvvrh0mw74i" path="res://assets/fonts/Kings/Kings-Regular.ttf" id="3_n45a8"]
 
 [node name="SummaryScreen" type="Control"]
 layout_mode = 3
@@ -13,6 +15,17 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_6n7lb")
 
+[node name="TextureRect" type="TextureRect" parent="."]
+modulate = Color(0.333333, 0.333333, 0.333333, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_plca0")
+expand_mode = 2
+
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
 anchors_preset = 15
@@ -20,6 +33,13 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_n45a8")
+theme_override_font_sizes/font_size = 70
+text = "SOUHRN"
+horizontal_alignment = 1
 
 [node name="Tree" type="Tree" parent="VBoxContainer"]
 layout_mode = 2

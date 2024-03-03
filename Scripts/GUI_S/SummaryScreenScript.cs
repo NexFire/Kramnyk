@@ -8,15 +8,14 @@ public partial class SummaryScreenScript : Control
         world = GetNode<World>("/root/world");
         world.GenerateWantedItems();
         world.BuyWantedItems();
-        GD.Print("This is a thing");
         world.oldSalesData = NewSalesData.LoadNewSalesDataToOldSalesData(world.newSalesData);
-        GD.Print("this isůfjůlasdlkjs");
         Market.ClearItems(world.markets);
         var tree = GetNode<Tree>("VBoxContainer/Tree");
 
         TreeItem root = tree.CreateItem();
         TreeItem childMerchant;
         TreeItem subChild;
+        TreeItem subSubChild;
         foreach (var merchant in world.merchants)
         {
             merchant.RemoveNotKeepable();
@@ -28,6 +27,16 @@ public partial class SummaryScreenScript : Control
             subChild = tree.CreateItem(childMerchant);
             subChild.SetText(0, "Sklad");
             subChild.SetText(1, merchant.AvailableSpace.ToString());
+            if (merchant.OwnedItems.Count > 0)
+            {
+                subChild = tree.CreateItem(childMerchant);
+                subChild.SetText(0, "Vlastněné položky");
+                foreach (var ownedItem in merchant.OwnedItems)
+                {
+                    subSubChild = tree.CreateItem(subChild);
+                    subSubChild.SetText(0, ownedItem.Name["cz"] + ": " + ownedItem.Amount.ToString());
+                }
+            }
         }
         base._Ready();
     }

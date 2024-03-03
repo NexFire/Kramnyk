@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://cfn5kj3jjhdag"]
+[gd_scene load_steps=4 format=3 uid="uid://cfn5kj3jjhdag"]
 
 [ext_resource type="Script" path="res://Scripts/GUI_S/SelectOldGame.cs" id="1_7pbjd"]
 [ext_resource type="PackedScene" uid="uid://bf21hntmsbjhh" path="res://widgets/mainMenuButton/mainMenuButtonV2.tscn" id="1_ln83p"]
+[ext_resource type="Texture2D" uid="uid://clo7lmeqq2kre" path="res://assets/icon/gateIn.webp" id="2_2axkh"]
 
 [node name="PickOldGame" type="Control"]
 layout_mode = 3
@@ -11,6 +12,17 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_7pbjd")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+modulate = Color(0.333333, 0.333333, 0.333333, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_2axkh")
+expand_mode = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1

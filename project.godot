@@ -18,6 +18,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 world="*res://Scripts/ModelPackage/World/World.cs"
+BGM="*res://Scenes/BGM.tscn"
 
 [display]
 

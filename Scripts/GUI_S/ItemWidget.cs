@@ -8,9 +8,14 @@ public partial class ItemWidget : Control
     int itemCount = 0;
     Item localItem;
     Label amountLabel;
+    SpinBox priceInput;
+    SpinBox amountInput;
     public override void _Ready()
     {
         world = GetNode<World>("/root/world");
+        priceInput = GetNode<SpinBox>("MarginContainer/MainContainer/SpliterContainer/SettingSide/Price/HBoxContainer/SpinBox");
+        amountInput = GetNode<SpinBox>("MarginContainer/MainContainer/SpliterContainer/SettingSide/Amount/HBoxContainer/SpinBox");
+        priceInput.Value = localItem.Price + 1;
         base._Ready();
     }
     public void LoadItemWidget(Item item, World world)
@@ -39,15 +44,13 @@ public partial class ItemWidget : Control
     }
     public void OnBuyButtonPress()
     {
-        var priceInput = GetNode<SpinBox>("MarginContainer/MainContainer/SpliterContainer/SettingSide/Price/HBoxContainer/SpinBox");
-        var amountInput = GetNode<SpinBox>("MarginContainer/MainContainer/SpliterContainer/SettingSide/Amount/HBoxContainer/SpinBox");
         var user = world.merchants.FirstOrDefault(merchant => merchant.Id == 0, null);
         if (user == null)
         {
             return;
         }
-        user.BuyItemsUser(new() { new() { localItem.Id, (int)amountInput.Value } }, world.markets);
         user.Margin = (float)priceInput.Value;
+        user.BuyItemsUser(new() { new() { localItem.Id, (int)amountInput.Value } }, world.markets, world.newSalesData);
         amountLabel.Text = localItem.Amount.ToString();
         var parentScript = GetNodeOrNull<SelectItems>("../../../../../GameScreen");
         if (parentScript == null)

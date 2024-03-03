@@ -61,7 +61,7 @@ namespace ModelPackage.World
         }
 
         //this is for getting the items from here if you excede the amount of items
-        public void BuyItem(int itemId, int amount, Merchant merchant)
+        public void BuyItem(int itemId, int amount, Merchant merchant, NewSalesData newSaleData)
         {
             var item = buyableItems.First(inMarketItem => inMarketItem.Id == itemId);
             if (item.Amount == 0)
@@ -76,6 +76,10 @@ namespace ModelPackage.World
             copyItem.Amount = amount;
             if (merchant.GetItem(copyItem))
             {
+                for (int a = 0; a < amount; a++)
+                {
+                    newSaleData.BuyPrices.Add(item.Price);
+                }
                 item.Amount -= amount;
             }
 

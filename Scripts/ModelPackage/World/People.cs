@@ -93,7 +93,16 @@ namespace ModelPackage.World
             List<List<float>> priorityItems = new();
             foreach (var oldSaleData in oldSalesDatas)
             {
-                priorityItems.Add(new List<float> { oldSaleData.ProductId, (oldSaleData.AverageSellPrice - oldSaleData.AverageBuyPrice) * oldSaleData.PiecesSold });
+                int piecesSold;
+                if (oldSaleData.PiecesSold == 0)
+                {
+                    piecesSold = 1;
+                }
+                else
+                {
+                    piecesSold = oldSaleData.PiecesSold;
+                }
+                priorityItems.Add(new List<float> { oldSaleData.ProductId, (oldSaleData.AverageSellPrice - oldSaleData.AverageBuyPrice) * piecesSold });
             }
             priorityItems.Sort((list1, list2) => list2[1].CompareTo(list1[1]));
             priorityItems.RemoveAll(item =>
@@ -115,6 +124,7 @@ namespace ModelPackage.World
         }
         public bool GetItem(Item item)
         {
+            GD.Print("Player Id: " + Id + " Item id: " + item.Id);
             if (DeltaMoneyPossible(-1 * item.Price * item.Amount) && DeltaSpacePossible(-1 * item.SpaceComplexity * item.Amount))
             {
                 DeltaMoney(-1 * item.Price * item.Amount);
@@ -127,7 +137,21 @@ namespace ModelPackage.World
                 {
                     item.Price = (int)(item.Price * Margin);
                 }
-                OwnedItems.Add(item);
+                var ownedItem = OwnedItems.FirstOrDefault(ownedItemFinding => ownedItemFinding.Id == item.Id, null);
+                if (ownedItem == null)
+                {
+                    GD.Print("Yes we are adding new item");
+                    OwnedItems.Add(item);
+                }
+                else
+                {
+                    GD.Print("We are adding already existing");
+                    if (item.Price > ownedItem.Price)
+                    {
+                        ownedItem.Price = item.Price;
+                    }
+                    ownedItem.Amount += item.Amount;
+                }
                 return true;
             }
             if (Id == 0)
@@ -155,7 +179,10 @@ namespace ModelPackage.World
                     DeltaMoney(itemToSell.Price * itemToSell.Amount);
                     DeltaSpace(itemToSell.Amount * itemToSell.SpaceComplexity);
                     item.Amount -= itemToSell.Amount;
-                    newSaleData.SellPrices.Add(itemToSell.Price);
+                    for (int a = 0; a < itemToSell.Amount; a++)
+                    {
+                        newSaleData.SellPrices.Add(itemToSell.Price);
+                    }
                     newSaleData.SoldPieces(itemToSell.Amount);
                     OwnedItems.RemoveAll(itemSearch => itemSearch.Id == item.Id);
                 }
@@ -168,13 +195,16 @@ namespace ModelPackage.World
                     DeltaSpace(item.Amount * itemToSell.SpaceComplexity);
                     itemToSell.Amount -= item.Amount;
                     newSaleData.SoldPieces(item.Amount);
-                    newSaleData.SellPrices.Add(itemToSell.Price);
+                    for (int a = 0; a < item.Amount; a++)
+                    {
+                        newSaleData.SellPrices.Add(itemToSell.Price);
+                    }
                     item.Amount = 0;
                 }
             }
             return true;
         }
-        public void BuyItems(List<AvailableItem> items, List<Market> markets, List<SalesData> oldSalesData)
+        public void BuyItems(List<AvailableItem> items, List<Market> markets, List<SalesData> oldSalesData, List<NewSalesData> newSalesDatas)
         {
             CalculatePriority(items, markets, oldSalesData);
             List<List<int>> counts = new();
@@ -196,6 +226,11 @@ namespace ModelPackage.World
                 {
                     return;
                 }
+                var newSaleData = newSalesDatas.FirstOrDefault(data => data.ProductId == itemId, null);
+                if (newSaleData == null)
+                {
+                    return;
+                }
                 int itemCount = GetCount(itemId, item, itemData);
                 while (itemCount * item.SpaceComplexity > AvailableSpace || itemCount * item.Price > Money)
                 {
@@ -203,20 +238,37 @@ namespace ModelPackage.World
                 }
                 if (itemCount != 0)
                 {
-                    market?.BuyItem(itemId, itemCount, this);
+                    market?.BuyItem(itemId, itemCount, this, newSaleData);
                 }
             }
         }
         public void RemoveNotKeepable()
         {
-            OwnedItems.RemoveAll(item => item.Keepable == false);
+            OwnedItems.RemoveAll(item =>
+            {
+                if (item.Keepable == false)
+                {
+                    DeltaSpace(item.Amount * item.SpaceComplexity);
+                    return true;
+                }
+                return false;
+            });
         }
-        public void BuyItemsUser(List<List<int>> itemsToBuy, List<Market> markets)
+        public void BuyItemsUser(List<List<int>> itemsToBuy, List<Market> markets, List<NewSalesData> newSalesDatas)
         {
             foreach (var item in itemsToBuy)
             {
-                var market = markets.FirstOrDefault(market => market.Goods.ContainsKey(item[0]));
-                market?.BuyItem(item[0], item[1], this);
+                var market = markets.FirstOrDefault(market => market.Goods.ContainsKey(item[0]), null);
+                if (market == null)
+                {
+                    return;
+                }
+                var newSaleData = newSalesDatas.FirstOrDefault(data => data.ProductId == item[0], null);
+                if (newSaleData == null)
+                {
+                    return;
+                }
+                market?.BuyItem(item[0], item[1], this, newSaleData);
             }
             Console.WriteLine("Test");
         }
@@ -224,8 +276,23 @@ namespace ModelPackage.World
         {
             int countHave = OwnedItems.FirstOrDefault(item => item.Id == productId)?.Amount ?? 1;
             int a = 60;
-            float b = 0.3f;
-            int count = (int)(b * item.SpaceComplexity * countHave * (salesData.AverageSellPrice - salesData.AverageBuyPrice) * salesData.PiecesSold * Money / (2 * item.Price * AvailableSpace));
+            float b = 0.4f;
+            int piecesSold = salesData.PiecesSold;
+            if (piecesSold == 0)
+            {
+                b = 35f;
+            }
+            else
+            {
+                b = 4f;
+            }
+            piecesSold = salesData.PiecesSold == 0 ? 1 : salesData.PiecesSold;
+            int count = (int)(b * item.SpaceComplexity * countHave * (salesData.AverageSellPrice - salesData.AverageBuyPrice) * piecesSold * Money / (2 * item.Price * AvailableSpace));
+            if (count < 0)
+            {
+                count = 0;
+            }
+            GD.Print("Player id: " + Id + " product Id: " + productId + " count: " + count);
             return count;
         }
         public static List<Merchant> GenerateMoney(List<Merchant> merchants)
